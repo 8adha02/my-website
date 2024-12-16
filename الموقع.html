@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiveM Server Info - Tech</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Tech Title */
+        .tech-title {
+            background: linear-gradient(135deg, #00bcd4, #1976d2);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px #00bcd4;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Input Section */
+        .input-container {
+            text-align: center;
+            margin: 20px auto;
+            animation: slideDown 1.5s ease-in-out;
+        }
+
+        label {
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 0 0 8px #fff;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        input, button {
+            padding: 12px 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1.2rem;
+        }
+
+        input {
+            width: 300px;
+            color: #fff;
+            background-color: #333;
+            border: 2px solid #00bcd4;
+        }
+
+        button {
+            background-color: #00bcd4;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+        }
+
+        /* Info Box */
+        .u-group {
+            display: none;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .info-box {
+            background: #1e1e1e;
+            color: #00bcd4;
+            padding: 20px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            background-color: #333;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
+        }
+
+        /* Footer Joke */
+        .footer-joke {
+            text-align: center;
+            margin-top: 40px;
+            color: #ccc;
+            font-style: italic;
+            font-size: 1rem;
+            animation: slideUp 1.5s ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Mouse Style */
+        body {
+            cursor: none;
+        }
+
+        .mouse {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0, 188, 212, 0.7);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 0.1s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Background elements (symbols and codes) */
+        .background-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: url('https://www.transparenttextures.com/patterns/circuit-board-1.png') repeat, linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .code-symbols {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            color: rgba(0, 188, 212, 0.3);
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            animation: moveCodeSymbols 5s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes moveCodeSymbols {
+            0% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+            100% {
+                transform: translateX(-50%) rotate(360deg);
+            }
+        }
+
+        /* Instagram Icon */
+        .instagram-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg');
+            background-size: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.6);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Background elements (tech patterns) -->
+    <div class="background-elements"></div>
+
+    <!-- Tech Title -->
+    <div class="tech-title">ＴＥＣＨ</div>
+
+    <!-- Message -->
+    <div class="code-symbols">
+        <div>HELLO HACKER</div>
+        <div>console.log('Fetching Server Data...');</div>
+    </div>
+
+    <!-- Input Section -->
+    <div class="input-container">
+        <label for="visualzCfx">Enter Server Link:</label>
+        <input type="text" id="visualzCfx" placeholder="e.g., cfx.re/join/abcd1234">
+        <button id="visualzBtn">Fetch Server Info</button>
+    </div>
+
+    <!-- Info Boxes -->
+    <div class="u-group">
+        <div class="info-box" id="serverName">Server Name</div>
+        <div class="info-box" id="serverGamebuild">Gamebuild</div>
+        <div class="info-box" id="serverPlayers">Players</div>
+        <div class="info-box" id="serverOnesync">Onesync</div>
+        <div class="info-box" id="serverOwner">Owner Profile</div>
+        <div class="info-box" id="serverAddress">Server Address</div>
+        <div class="info-box" id="serverCountry">Country</div>
+        <div class="info-box" id="serverISP">ISP</div>
+    </div>
+
+    <!-- Funny Footer Joke -->
+    <div class="footer-joke">"If this doesn't work, blame the server... not me 😎"</div>
+
+    <!-- Mouse Effect -->
+    <div class="mouse"></div>
+
+    <!-- Instagram Icon -->
+    <div class="instagram-icon" onclick="window.location.href='https://www.instagram.com/o.q9y/'"></div>
+
+    <!-- Script -->
+    <script>
+        const getBtn = document.getElementById('visualzBtn');
+        const mouseElement = document.querySelector('.mouse');
+        const visualzApi = () => {
+            var visualzIpReplace = document.getElementById('visualzCfx').value;
+            var visualzIP = visualzIpReplace.replace("cfx.re/join/", "");
+            const xhr = new XMLHttpRequest();
+            const url = `https://servers-frontend.fivem.net/api/servers/single/${visualzIP}`;
+            xhr.open('GET', url);
+            xhr.responseType = 'json';
+
+            xhr.onload = () => {
+                const data = xhr.response;
+                document.getElementsByClassName("u-group")[0].style.display = "flex";
+
+                document.getElementById('serverName').innerHTML = "Server Name<br>" + data['Data']['hostname'];
+                document.getElementById('serverGamebuild').innerHTML = "Gamebuild<br>" + data['Data']['vars']['sv_enforceGameBuild'];
+                document.getElementById('serverPlayers').innerHTML = "Players<br>" + data['Data']['clients'] + "/" + data['Data']['sv_maxclients'];
+                document.getElementById('serverOnesync').innerHTML = "Onesync<br>" + data['Data']['vars']['onesync_enabled'];
+                document.getElementById('serverOwner').innerHTML = "Owner Profile<br>" + data['Data']['ownerProfile'];
+                document.getElementById('serverAddress').innerHTML = "Server Address<br>" + data['Data']['connectEndPoints'][0];
+
+                const ip = data['Data']['connectEndPoints'][0].split(":")[0];
+                fetch(`https://ip-api.com/json/${ip}`)
+                    .then(response => response.json())
+                    .then(ipData => {
+                        document.getElementById('serverCountry').innerHTML = "Country<br>" + ipData['country'];
+                        document.getElementById('serverISP').innerHTML = "ISP<br>" + ipData['isp'];
+                    });
+            };
+            xhr.send();
+        };
+
+        getBtn.addEventListener('click', visualzApi);
+
+        // Mouse follow
+        document.addEventListener('mousemove', (e) => {
+            mouseElement.style.left = `${e.pageX}px`;
+            mouseElement.style.top = `${e.pageY}px`;
+        });
+    </script>
+</body>
+</html>
